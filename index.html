@@ -3,145 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio BTS SIO SLAM | Votre Nom</title>
-    <!-- Tailwind CSS pour un design moderne et rapide -->
-    <script src="https://tailwindcss.com"></script>
-    <!-- Lucide Icons pour les icônes tech -->
+    <title>Portfolio BTS SIO SLAM | Taupin Kéran</title>
+    <!-- Liaison avec votre fichier CSS local -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons pour les icônes (optionnel si hors ligne) -->
     <script src="https://unpkg.com"></script>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans antialiased">
+<body>
 
     <!-- NAV BAR -->
-    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur border-b border-slate-800 px-6 py-4 flex justify-between items-center">
-        <span class="text-xl font-bold bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent">Sébastien.Dev</span>
-        <div class="space-x-6 text-sm font-medium text-slate-400">
-            <a href="#projets" class="hover:text-emerald-400 transition">Projets</a>
-            <a href="#competences" class="hover:text-emerald-400 transition">Compétences</a>
-            <a href="#contact" class="hover:text-emerald-400 transition">Contact</a>
+    <nav>
+        <span class="logo">Kéran.Dev</span>
+        <div class="links">
+            <a href="#projets">Projets</a>
+            <a href="#competences">Compétences</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="max-w-5xl mx-auto px-6 py-20 text-center md:text-left md:flex md:items-center md:justify-between gap-12">
-        <div class="space-y-6 max-w-2xl">
-            <span class="px-3 py-1 text-xs font-semibold text-emerald-400 bg-emerald-500/10 rounded-full border border-emerald-500/20">BTS SIO SLAM</span>
-            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">
-                Développeur d'applications & solutions métiers
-            </h1>
-            <p class="text-slate-400 text-lg">
-                Actuellement en BTS SIO (Solutions Logicielles et Applications Métiers). Passionné par le développement web back-end, la conception de bases de données et la résolution de problématiques concrètes.
-            </p>
-            <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                <a href="#projets" class="px-5 py-2.5 bg-emerald-500 text-slate-950 font-semibold rounded-lg hover:bg-emerald-400 transition flex items-center gap-2">
-                    <i data-lucide="folder-git-2" class="w-4 h-4"></i> Voir mes projets
-                </a>
-                <a href="#" class="px-5 py-2.5 bg-slate-800 text-slate-200 font-semibold rounded-lg border border-slate-700 hover:bg-slate-700 transition flex items-center gap-2">
-                    <i data-lucide="download" class="w-4 h-4"></i> Télécharger mon CV
-                </a>
-            </div>
+    <header>
+        <span class="badge">BTS SIO SLAM</span>
+        <h1>Développeur d'applications & solutions métiers</h1>
+        <p>Actuellement en BTS SIO (Solutions Logicielles et Applications Métiers). Passionné par le développement web back-end, la conception de bases de données et la résolution de problématiques concrètes.</p>
+        <div class="buttons">
+            <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+            <a href="#" class="btn btn-secondary">Télécharger mon CV</a>
         </div>
-        <div class="hidden md:block w-72 h-72 bg-gradient-to-tr from-emerald-500 to-teal-600 rounded-2xl opacity-20 blur-2xl absolute -z-10"></div>
     </header>
 
     <!-- COMPÉTENCES -->
-    <section id="competences" class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-800">
-        <h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
-            <i data-lucide="code-2" class="text-emerald-400"></i> Stack Technique & Compétences
-        </h2>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-            <div class="bg-slate-800/50 border border-slate-700/50 p-4 rounded-xl text-center">
-                <div class="text-emerald-400 font-bold text-lg mb-1">PHP</div>
-                <span class="text-xs text-slate-400">Back-end / PDO / CRUD</span>
+    <section id="competences">
+        <h2><span>#</span> Langages techniques/compétences</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="tech-name">PHP</div>
             </div>
-            <div class="bg-slate-800/50 border border-slate-700/50 p-4 rounded-xl text-center">
-                <div class="text-emerald-400 font-bold text-lg mb-1">Java</div>
-                <span class="text-xs text-slate-400">POO / Applications</span>
+            <div class="skill-card">
+                <div class="tech-name">Java</div>
             </div>
-            <div class="bg-slate-800/50 border border-slate-700/50 p-4 rounded-xl text-center">
-                <div class="text-emerald-400 font-bold text-lg mb-1">JavaScript</div>
-                <span class="text-xs text-slate-400">Dynamisme DOM / Scripts</span>
+            <div class="skill-card">
+                <div class="tech-name">JavaScript</div>
             </div>
-            <div class="bg-slate-800/50 border border-slate-700/50 p-4 rounded-xl text-center">
-                <div class="text-emerald-400 font-bold text-lg mb-1">SQL / MySQL</div>
-                <span class="text-xs text-slate-400">MCD / Wampserver</span>
+            <div class="skill-card">
+                <div class="tech-name">SQL</div>
             </div>
-            <div class="bg-slate-800/50 border border-slate-700/50 p-4 rounded-xl text-center">
-                <div class="text-emerald-400 font-bold text-lg mb-1">HTML / CSS</div>
-                <span class="text-xs text-slate-400">Structure & Design</span>
+            <div class="skill-card">
+                <div class="tech-name">HTML/CSS</div>
             </div>
         </div>
     </section>
 
     <!-- PROJETS (E4) -->
-    <section id="projets" class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-800">
-        <h2 class="text-2xl font-bold mb-2 flex items-center gap-3">
-            <i data-lucide="briefcase" class="text-emerald-400"></i> Projets et Réalisations (Épreuve E4)
-        </h2>
-        <p class="text-slate-400 mb-8 text-sm">Sélection d'applications métiers développées en contexte professionnel et de formation.</p>
+    <section id="projets">
+        <h2><span>#</span> Projets et Réalisations </h2>
+        <p class="section-desc">Sélection d'applications métiers développées en contexte professionnel et de formation.</p>
 
-        <div class="grid md:grid-cols-2 gap-6">
+        <div class="projects-grid">
             <!-- Projet de Stage: Gestion de Stock -->
-            <div class="bg-slate-800/40 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition flex flex-col justify-between">
+            <div class="project-card">
                 <div>
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-0.5 text-xs bg-teal-500/10 text-teal-400 rounded-full border border-teal-500/20 font-medium">Stage de 1ère année</span>
-                        <span class="text-xs text-slate-500 flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3"></i> 5-6 semaines</span>
+                    <div class="project-header">
+                        <span class="project-badge badge-stage">Stage de 1ère année</span>
+                        <span class="project-duration">5-6 semaines</span>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-100 mb-2">Application de Gestion des Stocks</h3>
-                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
-                        Conception et déploiement d'une application web dynamique permettant de retracer en temps réel les mouvements de stocks. Base de données relationnelle interconnectée.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="text-xs px-2 py-1 bg-slate-900 text-slate-300 rounded font-mono">PHP (PDO)</span>
-                        <span class="text-xs px-2 py-1 bg-slate-900 text-slate-300 rounded font-mono">MySQL</span>
-                        <span class="text-xs px-2 py-1 bg-slate-900 text-slate-300 rounded font-mono">Wampserver</span>
-                        <span class="text-xs px-2 py-1 bg-slate-900 text-slate-300 rounded font-mono">JavaScript</span>
+                    <h3>Application de Gestion des Stocks</h3>
+                    <p>Conception et déploiement d'une application web dynamique permettant de retracer en temps réel les mouvements de stocks. Base de données relationnelle interconnectée.</p>
+                    <div class="tags">
+                        <span class="tag">PHP (PDO)</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Wampserver</span>
+                        <span class="tag">JavaScript</span>
                     </div>
                 </div>
-                <div class="border-t border-slate-700/50 pt-4 space-y-2">
-                    <div class="text-xs text-slate-400"><strong>Compétences clés :</strong> Modélisation MCD, requêtes CRUD sécurisées, gestion de l'environnement WAMP.</div>
-                    <div class="pt-2">
-                        <a href="#" class="text-sm text-emerald-400 hover:underline inline-flex items-center gap-1 font-medium">
-                            Consulter la fiche descriptive E4 <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
+                <div class="project-footer">
+                    <div class="project-key"><strong>Compétences :</strong> Modélisation MCD, requêtes CRUD sécurisées, gestion de l'environnement WAMP.</div>
+                    <a href="#" class="project-link">Consulter la fiche descriptive E4 →</a>
                 </div>
             </div>
 
-            <!-- Projet de cours / Exemple à personnaliser -->
-            <div class="bg-slate-800/40 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition flex flex-col justify-between opacity-75">
+            <!-- Projet de cours -->
+            <div class="project-card" style="opacity: 0.75;">
                 <div>
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="px-2 py-0.5 text-xs bg-purple-500/10 text-purple-400 rounded-full border border-purple-500/20 font-medium">Projet de cours AP</span>
-                        <span class="text-xs text-slate-500 flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3"></i> En cours</span>
+                    <div class="project-header">
+                        <span class="project-badge badge-cours">Projet de cours AP</span>
+                        <span class="project-duration">En cours</span>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-100 mb-2">Application Lourde en Java</h3>
-                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
-                        [À personnaliser] Projet de manipulation d'objets, gestion de fichiers ou application lourde avec interface graphique connectée à une base de données.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="text-xs px-2 py-1 bg-slate-900 text-slate-300 rounded font-mono">Java (POO)</span>
-                        <span class="text-xs px-2 py-1 bg-slate-900 text-slate-300 rounded font-mono">SQL</span>
+                    <h3>Application Lourde en Java</h3>
+                    <p>[À personnaliser] Projet de manipulation d'objets, gestion de fichiers ou application lourde avec interface graphique connectée à une base de données.</p>
+                    <div class="tags">
+                        <span class="tag">Java (POO)</span>
+                        <span class="tag">SQL</span>
                     </div>
                 </div>
-                <div class="border-t border-slate-700/50 pt-4">
-                    <div class="text-xs text-slate-400"><strong>Compétences clés :</strong> Programmation orientée objet, héritage, gestion des exceptions.</div>
+                <div class="project-footer">
+                    <div class="project-key"><strong>Compétences :</strong> Programmation orientée objet, héritage, gestion des exceptions.</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-800 text-center">
-        <h2 class="text-2xl font-bold mb-4">Me contacter</h2>
-        <p class="text-slate-400 max-w-md mx-auto mb-6 text-sm">
-            Disponible pour échanger sur mes projets de BTS, ma veille technologique ou une future opportunité d'alternance / emploi.
-        </p>
-        <div class="flex justify-center gap-6 text-slate-400">
-            <a href="mailto:votre.email@exemple.com" class="hover:text-emerald-400 transition flex items-center gap-2"><i data-lucide="mail" class="w-5 h-5"></i> Email</a>
-            <a href="#" class="hover:text-emerald-400 transition flex items-center gap-2"><i data-lucide="linkedin" class="w-5 h-5"></i> LinkedIn</a>
-            <a href="#" class="hover:text-emerald-400 transition flex items-center gap-2"><i data-lucide="github" class="w-5 h-5"></i> GitHub</a>
+    <section id="contact" class="contact-container">
+        <h2>Me contacter</h2>
+        <p>Disponible pour échanger sur mes projets de BTS, ma veille technologique ou une future opportunité d'alternance / emploi.</p>
+        <div class="social-links">
+            <a href="mailto:pro.taupinkeran@gmail.com">📧 Email</a>
+            <a href="#">💼 LinkedIn</a>
+            <a href="#">🐙 GitHub</a>
         </div>
     </section>
 
     <!-- FOOTER -->
+    <footer>
+        © 2026 - Portfolio mis en conformité pour les épreuves du BTS SIO SLAM.
+    </footer>
+
+    <script>
+        // Initialisation si en ligne
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+    </script>
+</body>
+</html>
