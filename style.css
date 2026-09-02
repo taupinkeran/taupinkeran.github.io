@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio BTS SIO SLAM | Votre Nom</title>
+    <!-- Liaison avec votre fichier CSS local -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons pour les icônes (optionnel si hors ligne) -->
+    <script src="https://unpkg.com"></script>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <nav>
+        <span class="logo">Sébastien.Dev</span>
+        <div class="links">
+            <a href="#projets">Projets</a>
+            <a href="#competences">Compétences</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header>
+        <span class="badge">BTS SIO SLAM</span>
+        <h1>Développeur d'applications & solutions métiers</h1>
+        <p>Actuellement en BTS SIO (Solutions Logicielles et Applications Métiers). Passionné par le développement web back-end, la conception de bases de données et la résolution de problématiques concrètes.</p>
+        <div class="buttons">
+            <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+            <a href="#" class="btn btn-secondary">Télécharger mon CV</a>
+        </div>
+    </header>
+
+    <!-- COMPÉTENCES -->
+    <section id="competences">
+        <h2><span>#</span> Stack Technique & Compétences</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="tech-name">PHP</div>
+                <span class="tech-desc">Back-end / PDO / CRUD</span>
+            </div>
+            <div class="skill-card">
+                <div class="tech-name">Java</div>
+                <span class="tech-desc">POO / Applications</span>
+            </div>
+            <div class="skill-card">
+                <div class="tech-name">JavaScript</div>
+                <span class="tech-desc">Dynamisme DOM</span>
+            </div>
+            <div class="skill-card">
+                <div class="tech-name">SQL</div>
+                <span class="tech-desc">MCD / Wampserver</span>
+            </div>
+            <div class="skill-card">
+                <div class="tech-name">HTML/CSS</div>
+                <span class="tech-desc">Structure & Design</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJETS (E4) -->
+    <section id="projets">
+        <h2><span>#</span> Projets et Réalisations (Épreuve E4)</h2>
+        <p class="section-desc">Sélection d'applications métiers développées en contexte professionnel et de formation.</p>
+
+        <div class="projects-grid">
+            <!-- Projet de Stage: Gestion de Stock -->
+            <div class="project-card">
+                <div>
+                    <div class="project-header">
+                        <span class="project-badge badge-stage">Stage de 1ère année</span>
+                        <span class="project-duration">5-6 semaines</span>
+                    </div>
+                    <h3>Application de Gestion des Stocks</h3>
+                    <p>Conception et déploiement d'une application web dynamique permettant de retracer en temps réel les mouvements de stocks. Base de données relationnelle interconnectée.</p>
+                    <div class="tags">
+                        <span class="tag">PHP (PDO)</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Wampserver</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <div class="project-key"><strong>Compétences :</strong> Modélisation MCD, requêtes CRUD sécurisées, gestion de l'environnement WAMP.</div>
+                    <a href="#" class="project-link">Consulter la fiche descriptive E4 →</a>
+                </div>
+            </div>
+
+            <!-- Projet de cours -->
+            <div class="project-card" style="opacity: 0.75;">
+                <div>
+                    <div class="project-header">
+                        <span class="project-badge badge-cours">Projet de cours AP</span>
+                        <span class="project-duration">En cours</span>
+                    </div>
+                    <h3>Application Lourde en Java</h3>
+                    <p>[À personnaliser] Projet de manipulation d'objets, gestion de fichiers ou application lourde avec interface graphique connectée à une base de données.</p>
+                    <div class="tags">
+                        <span class="tag">Java (POO)</span>
+                        <span class="tag">SQL</span>
+                    </div>
+                </div>
+                <div class="project-footer">
+                    <div class="project-key"><strong>Compétences :</strong> Programmation orientée objet, héritage, gestion des exceptions.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-container">
+        <h2>Me contacter</h2>
+        <p>Disponible pour échanger sur mes projets de BTS, ma veille technologique ou une future opportunité d'alternance / emploi.</p>
+        <div class="social-links">
+            <a href="mailto:votre.email@exemple.com">📧 Email</a>
+            <a href="#">💼 LinkedIn</a>
+            <a href="#">🐙 GitHub</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 - Portfolio mis en conformité pour les épreuves du BTS SIO SLAM.
+    </footer>
+
+    <script>
+        // Initialisation si en ligne
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+    </script>
+</body>
+</html>
