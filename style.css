@@ -320,3 +320,39 @@ footer {
     font-size: 0.75rem;
     color: var(--text-muted);
 }
+
+/* ==========================================
+   PROFIL UTILISATEUR (NAVBAR HAUT À GAUCHE)
+   ========================================== */
+.brand-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00E699; /* Couleur vert turquoise */
+}
+
+.brand-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1.2;
+}
+
+.brand-sub {
+    color: #00E699;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
