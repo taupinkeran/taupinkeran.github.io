@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veille Technologique | Taupin Kéran</title>
+    <link rel="stylesheet" href="style.css?v=1.1">
+    <script src="https://unpkg.com"></script>
+</head>
+<body>
 
+    <!-- NAV BAR -->
+    <nav>
+        <span class="logo"><a href="index.html" style="color: var(--accent); text-decoration: none;">Kéran.Dev</a></span>
+        <div class="links">
+            <a href="index.html#projets">Projets</a>
+            <a href="index.html#competences">Compétences</a>
+            <a href="veille.html">Veille</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HEADER DE LA VEILLE -->
+    <header>
+        <span class="badge">E4 - BTS SIO SLAM</span>
+        <h1>Veille Technologique</h1>
+        <p>Démarche systématique d'information et de suivi des évolutions techniques, méthodologiques et logicielles dans le domaine du développement.</p>
+    </header>
+
+    <!-- CONTENU PRINCIPAL -->
+    <section>
+        <h2><span>#</span> Sujet de Veille</h2>
+        <div style="background-color: var(--bg-card); padding: 1.5rem; border-radius: 0.75rem; border: 1px solid var(--border-color); margin-bottom: 2rem;">
+            <h3 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1.25rem;">L'impact de l'IA générative dans le développement Back-End & SQL</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                Mon suivi s'articule autour de l'intégration des assistants IA (GitHub Copilot, ChatGPT, Claude) dans le cycle de vie applicatif : génération de requêtes SQL complexes, refactorisation du code PHP/Java et enjeux de sécurité informatique (prévention des injections SQL et fuite de données).
+            </p>
+        </div>
+
+        <h2><span>#</span> Outils & Méthodologie d'Agrégation</h2>
+        <p class="section-desc">Les sources et plateformes utilisées pour automatiser et filtrer la collecte d'informations.</p>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="tech-name">Feedly</div>
+                <div class="tech-desc">Agrégateur de flux RSS pour centraliser les failles en Cybersécurité via LeMagIT, BleepingComputer, ZATAZ.</div>
+            </div>
+            <div class="skill-card">
+                <div class="tech-name">Google Alerts</div>
+                <div class="tech-desc">Notifications sur les mots-clés : "AI" "penetration testing" "IA" AND "pentest" "Unity AI" "AI game programming".</div>
+            </div>
+            <div class="skill-card">
+                <div class="tech-name">Réseaux Tech</div>
+                <div class="tech-desc">Suivi de développeurs et créateurs de contenu sur YouTube.</div>
+            </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 - Portfolio mis en conformité pour les épreuves du BTS SIO SLAM.
+    </footer>
+
+    <script>
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+    </script>
+</body>
+</html>
