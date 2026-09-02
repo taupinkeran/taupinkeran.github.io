@@ -1,132 +1,324 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio BTS SIO SLAM | Votre Nom</title>
-    <!-- Liaison avec votre fichier CSS local -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Lucide Icons pour les icônes (optionnel si hors ligne) -->
-    <script src="https://unpkg.com"></script>
-</head>
-<body>
+/* Variables de couleurs et réinitialisation */
+:root {
+    --bg-main: #0f172a;
+    --bg-card: #1e293b;
+    --border-color: #334155;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent: #10b981;
+    --accent-hover: #34d399;
+}
 
-    <!-- NAV BAR -->
-    <nav>
-        <span class="logo">Sébastien.Dev</span>
-        <div class="links">
-            <a href="#projets">Projets</a>
-            <a href="#competences">Compétences</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-    <!-- HERO SECTION -->
-    <header>
-        <span class="badge">BTS SIO SLAM</span>
-        <h1>Développeur d'applications & solutions métiers</h1>
-        <p>Actuellement en BTS SIO (Solutions Logicielles et Applications Métiers). Passionné par le développement web back-end, la conception de bases de données et la résolution de problématiques concrètes.</p>
-        <div class="buttons">
-            <a href="#projets" class="btn btn-primary">Voir mes projets</a>
-            <a href="#" class="btn btn-secondary">Télécharger mon CV</a>
-        </div>
-    </header>
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+}
 
-    <!-- COMPÉTENCES -->
-    <section id="competences">
-        <h2><span>#</span> Stack Technique & Compétences</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <div class="tech-name">PHP</div>
-                <span class="tech-desc">Back-end / PDO / CRUD</span>
-            </div>
-            <div class="skill-card">
-                <div class="tech-name">Java</div>
-                <span class="tech-desc">POO / Applications</span>
-            </div>
-            <div class="skill-card">
-                <div class="tech-name">JavaScript</div>
-                <span class="tech-desc">Dynamisme DOM</span>
-            </div>
-            <div class="skill-card">
-                <div class="tech-name">SQL</div>
-                <span class="tech-desc">MCD / Wampserver</span>
-            </div>
-            <div class="skill-card">
-                <div class="tech-name">HTML/CSS</div>
-                <span class="tech-desc">Structure & Design</span>
-            </div>
-        </div>
-    </section>
+/* Barre de navigation */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    <!-- PROJETS (E4) -->
-    <section id="projets">
-        <h2><span>#</span> Projets et Réalisations (Épreuve E4)</h2>
-        <p class="section-desc">Sélection d'applications métiers développées en contexte professionnel et de formation.</p>
+nav .logo {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--accent);
+}
 
-        <div class="projects-grid">
-            <!-- Projet de Stage: Gestion de Stock -->
-            <div class="project-card">
-                <div>
-                    <div class="project-header">
-                        <span class="project-badge badge-stage">Stage de 1ère année</span>
-                        <span class="project-duration">5-6 semaines</span>
-                    </div>
-                    <h3>Application de Gestion des Stocks</h3>
-                    <p>Conception et déploiement d'une application web dynamique permettant de retracer en temps réel les mouvements de stocks. Base de données relationnelle interconnectée.</p>
-                    <div class="tags">
-                        <span class="tag">PHP (PDO)</span>
-                        <span class="tag">MySQL</span>
-                        <span class="tag">Wampserver</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-                </div>
-                <div class="project-footer">
-                    <div class="project-key"><strong>Compétences :</strong> Modélisation MCD, requêtes CRUD sécurisées, gestion de l'environnement WAMP.</div>
-                    <a href="#" class="project-link">Consulter la fiche descriptive E4 →</a>
-                </div>
-            </div>
+nav .links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
 
-            <!-- Projet de cours -->
-            <div class="project-card" style="opacity: 0.75;">
-                <div>
-                    <div class="project-header">
-                        <span class="project-badge badge-cours">Projet de cours AP</span>
-                        <span class="project-duration">En cours</span>
-                    </div>
-                    <h3>Application Lourde en Java</h3>
-                    <p>[À personnaliser] Projet de manipulation d'objets, gestion de fichiers ou application lourde avec interface graphique connectée à une base de données.</p>
-                    <div class="tags">
-                        <span class="tag">Java (POO)</span>
-                        <span class="tag">SQL</span>
-                    </div>
-                </div>
-                <div class="project-footer">
-                    <div class="project-key"><strong>Compétences :</strong> Programmation orientée objet, héritage, gestion des exceptions.</div>
-                </div>
-            </div>
-        </div>
-    </section>
+nav .links a:hover {
+    color: var(--accent);
+}
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact-container">
-        <h2>Me contacter</h2>
-        <p>Disponible pour échanger sur mes projets de BTS, ma veille technologique ou une future opportunité d'alternance / emploi.</p>
-        <div class="social-links">
-            <a href="mailto:votre.email@exemple.com">📧 Email</a>
-            <a href="#">💼 LinkedIn</a>
-            <a href="#">🐙 GitHub</a>
-        </div>
-    </section>
+/* Section d'accueil (Hero) */
+header {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+}
 
-    <!-- FOOTER -->
-    <footer>
-        © 2026 - Portfolio mis en conformité pour les épreuves du BTS SIO SLAM.
-    </footer>
+header .badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    background-color: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 9999px;
+    margin-bottom: 1.5rem;
+}
 
-    <script>
-        // Initialisation si en ligne
-        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
-    </script>
-</body>
-</html>
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 1.125rem;
+    max-width: 42rem;
+    margin-bottom: 2rem;
+}
+
+header .buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: #022c22;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn-secondary {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: #475569;
+}
+
+/* Sections globales */
+section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+section h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+section h2 span {
+    color: var(--accent);
+}
+
+.section-desc {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-top: -1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Grille des compétences */
+.skills-grid {
+    display: grid;
+    grid-template-cols: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+}
+
+.skill-card {
+    background-color: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    text-center: center;
+    text-align: center;
+}
+
+.skill-card .tech-name {
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
+}
+
+.skill-card .tech-desc {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Grille des projets */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: rgba(30, 41, 59, 0.4);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-content: space-between;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: border-color 0.2s;
+}
+
+.project-card:hover {
+    border-color: #475569;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.project-badge {
+    padding: 0.125rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 9999px;
+    font-weight: 500;
+}
+
+.badge-stage {
+    background-color: rgba(20, 184, 166, 0.1);
+    color: #2dd4bf;
+    border: 1px solid rgba(20, 184, 166, 0.2);
+}
+
+.badge-cours {
+    background-color: rgba(168, 85, 247, 0.1);
+    color: #c084fc;
+    border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.project-duration {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.project-card h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.project-card p {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tag {
+    font-family: monospace;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    background-color: var(--bg-main);
+    color: #cbd5e1;
+    border-radius: 0.25rem;
+}
+
+.project-footer {
+    border-top: 1px solid rgba(51, 65, 85, 0.5);
+    padding-top: 1rem;
+}
+
+.project-key {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.project-link {
+    font-size: 0.875rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+/* Contact & Footer */
+.contact-container {
+    text-align: center;
+}
+
+.contact-container p {
+    color: var(--text-muted);
+    max-width: 28rem;
+    margin: 0 auto 1.5rem auto;
+    font-size: 0.875rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+}
+
+.social-links a:hover {
+    color: var(--accent);
+}
+
+footer {
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
