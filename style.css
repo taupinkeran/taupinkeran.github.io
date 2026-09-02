@@ -156,7 +156,7 @@ section h2 span {
 /* Grille des compétences */
 .skills-grid {
     display: grid;
-    grid-template-cols: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 1rem;
 }
 
@@ -165,7 +165,6 @@ section h2 span {
     border: 1px solid rgba(51, 65, 85, 0.5);
     padding: 1rem;
     border-radius: 0.75rem;
-    text-center: center;
     text-align: center;
 }
 
@@ -194,7 +193,6 @@ section h2 span {
     border-radius: 0.75rem;
     padding: 1.5rem;
     display: flex;
-    flex-content: space-between;
     flex-direction: column;
     justify-content: space-between;
     transition: border-color 0.2s;
