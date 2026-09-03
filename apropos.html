@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos | Kéran TAUPIN</title>
+    <!-- Liaison avec le fichier CSS du portfolio -->
+    <link rel="stylesheet" href="style.css?v=1.1">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- NAV BAR (DA Identique) -->
+    <nav>
+       <div class="brand-profile">
+            <img src="photocv.jpg" alt="Photo de Kéran TAUPIN" class="avatar" style="width: 52px; height: 52px; min-width: 52px; max-width: 52px; border-radius: 50%; object-fit: cover; object-position: center 20%; border: 2px solid #00E699; flex-shrink: 0;">
+            <div class="brand-info" style="display: flex; flex-direction: column; justify-content: center;">
+                <span class="brand-name" style="color: #FFFFFF; font-weight: 700; font-size: 0.95rem; line-height: 1.2;">Kéran TAUPIN</span>
+                <span class="brand-sub" style="color: #00E699; font-size: 0.75rem; font-weight: 500;">BTS SIO SLAM</span>
+            </div>
+        </div>
+
+        <div class="links">
+            <a href="index.html">Accueil</a>
+            <a href="index.html#projets">Projets</a>
+            <a href="apropos.html" style="color: var(--accent);">À Propos</a>
+            <a href="veille.html">Veille</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HEADER / HERO À PROPOS -->
+    <header>
+        <span class="badge">PROFIL & PARCOURS</span>
+        <h1>À propos de moi</h1>
+        <p>Étudiant déterminé et passionné par le développement d'applications, la gestion de bases de données et la résolution de problématiques concrètes au service des organisations.</p>
+        <div class="buttons">
+            <a href="CV_Taupin_Keran.pdf" download class="btn btn-primary">
+                📄 Télécharger mon CV complet (PDF)
+            </a>
+            <a href="mailto:pro.taupinkeran@gmail.com" class="btn btn-secondary">
+                ✉️ Me contacter
+            </a>
+        </div>
+    </header>
+
+    <!-- SECTION MON PROFIL & OBJECTIFS -->
+    <section>
+        <h2><span>#</span> Présentation</h2>
+        <div style="background-color: var(--bg-card); padding: 1.5rem; border-radius: 0.75rem; border: 1px solid var(--border-color); margin-bottom: 2rem;">
+            <p style="color: var(--text-main); line-height: 1.7; font-size: 0.95rem;">
+                Déterminé, sérieux et conscient du travail à fournir, je m'investis pleinement dans le développement de solutions applicatives performantes. Mon parcours en BTS SIO option SLAM me permet de concrétiser mon attrait pour la logique de programmation, l'architecture logicielle et la sécurisation des données applicatives.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION EXPÉRIENCES PROFESSIONNELLES (CV) -->
+    <section>
+        <h2><span>#</span> Expériences Professionnelles</h2>
+        <p class="section-desc">Immersions et réalisations en milieu professionnel.</p>
+
+        <div class="projects-grid" style="grid-template-columns: 1fr; gap: 1.5rem;">
+            
+            <!-- Expérience 1 : Stage Mairie du Carbet -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-badge badge-stage">Stage Pro</span>
+                    <span class="project-duration">18 Mai – 26 Juin 2026</span>
+                </div>
+                <h3>Stagiaire Informatique & Développement — Mairie du Carbet</h3>
+                <p style="margin-bottom: 0.75rem;">Mise en place d'outils métiers et accompagnement de la transformation numérique des services communaux.</p>
+                <ul style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; padding-left: 1.2rem; margin-bottom: 1rem;">
+                    <li>Conception et déploiement de l'application <strong>GECKIN</strong> (gestion de stock et de parc informatique).</li>
+                    <li>Résolution d'incidents, maintenance et support informatique auprès des agents.</li>
+                    <li>Audit RGPD et développement d'un module de traçabilité des accès applicatifs.</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">PHP / MySQL</span>
+                    <span class="tag">Gestion de Parc</span>
+                    <span class="tag">Support IT</span>
+                    <span class="tag">RGPD</span>
+                </div>
+            </div>
+
+            <!-- Expérience 2 : Cyberbase -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-badge badge-cours">Stage / Immersion</span>
+                    <span class="project-duration">Décembre 2022 & Juin 2023</span>
+                </div>
+                <h3>Stagiaire Accompagnement Numérique — Cyberbase de Bellefontaine</h3>
+                <p style="margin-bottom: 0.75rem;">Assistance technique et médiation numérique auprès des usagers.</p>
+                <ul style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; padding-left: 1.2rem; margin-bottom: 1rem;">
+                    <li>Accompagnement des usagers dans l'utilisation des outils numériques et démarches administratives.</li>
+                    <li>Maintenance logicielle de premier niveau (mises à jour, installation de périphériques).</li>
+                    <li>Numérisation et gestion sécurisée de documents administratifs complexes.</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Assistance Utilisateurs</span>
+                    <span class="tag">Maintenance 1er Niveau</span>
+                    <span class="tag">Numérisation</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION PARCOURS ACADÉMIQUE -->
+    <section>
+        <h2><span>#</span> Formation & Diplômes</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="tech-name">2025 – Présent</div>
+                <div class="tech-desc" style="color: var(--accent); font-weight: 600;">BTS SIO Option SLAM</div>
+                <div class="tech-desc">LGT Joseph Gaillard — Fort-de-France</div>
+            </div>
+            <div class="skill-card">
+                <div class="tech-name">2025</div>
+                <div class="tech-desc" style="color: var(--accent); font-weight: 600;">Baccalauréat Général</div>
+                <div class="tech-desc">Obtenu avec <strong>Mention Bien</strong></div>
+            </div>
+            <div class="skill-card">
+                <div class="tech-name">2022</div>
+                <div class="tech-desc" style="color: var(--accent); font-weight: 600;">Diplôme National du Brevet</div>
+                <div class="tech-desc">Validation du socle de compétences</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION COMPÉTENCES & LANGUES (Éléments complémentaires) -->
+    <section>
+        <h2><span>#</span> Langues & Centres d'Intérêt</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="tech-name">🌐 Langues</div>
+                <div class="tech-desc">
+                    • <strong>Français :</strong> Langue maternelle<br>
+                    • <strong>Créole :</strong> Langue maternelle<br>
+                    • <strong>Anglais :</strong> Niveau B2 (Intermédiaire)
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="tech-name">🎮 Passions & Tech</div>
+                <div class="tech-desc">Gaming, Streaming, Montage Vidéo & veille active sur les technologies émergentes.</div>
+            </div>
+            <div class="skill-card">
+                <div class="tech-name">⚽ Sport & Discipline</div>
+                <div class="tech-desc">Pratique régulière du sport à la maison (Discipline, régularité et rigueur au quotidien).</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (DA Identique) -->
+    <footer>
+        © 2026 - Portfolio Par Taupin Kéran.
+    </footer>
+
+    <script>
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+    </script>
+</body>
+</html>
