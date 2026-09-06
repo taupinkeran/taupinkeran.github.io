@@ -5,8 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veille Technologique | Taupin Kéran</title>
     <link rel="stylesheet" href="style.css?v=1.1">
-    <!-- Icônes Lucide (URL complète et fonctionnelle) -->
+    <!-- Icônes Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Styles spécifiques aux cartes d'actualités avec images */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .news-card {
+            background-color: var(--bg-card, #1e293b);
+            border: 1px solid var(--border-color, #334155);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent, #38bdf8);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            background-color: #0f172a;
+        }
+
+        .news-content {
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .news-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-main, #f8fafc);
+            text-decoration: none;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-title:hover {
+            color: var(--accent, #38bdf8);
+        }
+
+        .news-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted, #94a3b8);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .news-meta {
+            font-size: 0.75rem;
+            color: var(--text-muted, #64748b);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color, #334155);
+            padding-top: 0.75rem;
+        }
+
+        /* Masquage des articles supplémentaires */
+        .news-card.hidden {
+            display: none !important;
+        }
+
+        .load-more-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .btn-load-more {
+            background-color: transparent;
+            color: var(--accent, #38bdf8);
+            border: 1px solid var(--accent, #38bdf8);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-load-more:hover {
+            background-color: var(--accent, #38bdf8);
+            color: #0f172a;
+        }
+    </style>
 </head>
 <body>
 
@@ -56,87 +151,24 @@
             </div>
         </div>
 
-        <!-- FLUX D'ARTICLES ACTUALISÉS AUTOMATIQUEMENT -->
-        <h2 style="margin-top: 3rem;"><span>#</span> Flux d'Articles Recents (Mis à jour chaque semaine)</h2>
-        <p class="section-desc">Sélection automatique des derniers articles traitant de l'IA dans les jeux vidéo et de la sécurité logicielle.</p>
+        <!-- FLUX D'ARTICLES AUTOMATISÉ -->
+        <h2 style="margin-top: 3rem;"><span>#</span> Dernières Actualités</h2>
+        <p class="section-desc">Flux d'actualités extrait automatiquement chaque semaine.</p>
 
         <!-- START_AUTOMATIC_ARTICLES -->
-<div class="articles-grid">
-
-        <article class="article-card">
-            <h3><a href="https://www.gamedeveloper.com/cloud/xbox-to-cap-cloud-gaming-hours-for-game-pass-subscribers" target="_blank" rel="noopener">Xbox to cap Cloud Gaming hours for Game Pass subscribers</a></h3>
-            <p>Game Pass subscribers will no longer have unlimited access to Xbox's Cloud Gaming service....</p>
-            <span class="date">Publié le : Thu, 03 Sep 2026 23:40:49 GMT</span>
-        </article>
-        
-        <article class="article-card">
-            <h3><a href="https://www.gamedeveloper.com/business/supercell-s-acquisition-of-metacore-expected-to-close-this-month" target="_blank" rel="noopener">Supercell's acquisition of Metacore expected to close this month</a></h3>
-            <p>Once the deal is closed, Merge Mansion will officially become part of Supercell's live games portfolio....</p>
-            <span class="date">Publié le : Thu, 03 Sep 2026 16:06:04 GMT</span>
-        </article>
-        
-        <article class="article-card">
-            <h3><a href="https://www.gamedeveloper.com/business/gamecity-hamburg-launches-second-round-of-prototype-funding" target="_blank" rel="noopener">Gamecity Hamburg launches second round of prototype funding</a></h3>
-            <p>The organization is offering up to €80,000 to developers based or operating in the region....</p>
-            <span class="date">Publié le : Thu, 03 Sep 2026 14:49:10 GMT</span>
-        </article>
-        
-        <article class="article-card">
-            <h3><a href="https://www.gamedeveloper.com/business/report-savvy-games-group-ceo-brian-ward-departs-company" target="_blank" rel="noopener">Report: Savvy Games Group CEO Brian Ward departs company</a></h3>
-            <p>'As Savvy embarks on its next period of transformational growth, this is the right time for new leadership for that evolution.'...</p>
-            <span class="date">Publié le : Tue, 01 Sep 2026 21:42:52 GMT</span>
-        </article>
-        
-        <article class="article-card">
-            <h3><a href="https://www.gamedeveloper.com/business/aggro-crab-launches-publishing-label-to-splash-that-peak-cash" target="_blank" rel="noopener">Aggro Crab launches publishing label to splash that Peak cash</a></h3>
-            <p>The studio wants to support 'intense, stylized games with an attitude' - but isn't interested in 'generative AI slop.'...</p>
-            <span class="date">Publié le : Tue, 01 Sep 2026 17:02:48 GMT</span>
-        </article>
-        
-        <article class="article-card">
-            <h3><a href="https://www.gamedeveloper.com/design/paradox-interactive-s-afterworld-wants-to-entice-new-players-to-grand-strategy-with-tasty-rpg-hooks" target="_blank" rel="noopener">Paradox Interactive's Afterworld wants to entice new players to grand strategy with tasty RPG hooks</a></h3>
-            <p>Game director Dan Lind explains the appeal of strategy in grand strategy games, and how to invite new players into a sprawling game....</p>
-            <span class="date">Publié le : Tue, 01 Sep 2026 13:00:00 GMT</span>
-        </article>
-        
-        <article class="article-card">
-            <h3><a href="https://www.gamedeveloper.com/pc/report-13tb-of-steam-data-leaked-after-users-access-publicly-accessible-endpoint-" target="_blank" rel="noopener">Report: 13TB of Steam data leaked after users access 'publicly accessible endpoint'</a></h3>
-            <p>The leaked data apparently includes beta builds and screenshots of pre-release Valve titles—and games from other publishers like EA and WB Games....</p>
-            <span class="date">Publié le : Mon, 31 Aug 2026 15:07:37 GMT</span>
-        </article>
-        
-        <article class="article-card">
-            <h3><a href="https://www.gamedeveloper.com/business/indie-devs-and-publishers-hit-in-gamescom-equipment-thefts" target="_blank" rel="noopener">Indie devs and publishers hit in Gamescom equipment thefts</a></h3>
-            <p>Thieves obtained access to Gamescom's Indie Arena and business area and stole a number of laptops and Steam Decks from smaller exhibitors....</p>
-            <span class="date">Publié le : Mon, 31 Aug 2026 14:58:21 GMT</span>
-        </article>
-        
-        <article class="article-card">
-            <h3><a href="https://www.gamedeveloper.com/business/panic-refunds-tariff-fees-1047-games-pivots-from-splitgate-and-gamescom-dev-grows-patch-notes-67" target="_blank" rel="noopener">Panic refunds tariff fees, 1047 Games pivots from Splitgate, and Gamescom Dev grows - Patch Notes #67</a></h3>
-            <p>Plus: No More Room in Hell 2 surpasses 1 million players after exiting a pivotal Early Access period....</p>
-            <span class="date">Publié le : Fri, 28 Aug 2026 13:47:47 GMT</span>
-        </article>
-        
-        <article class="article-card">
-            <h3><a href="https://www.gamedeveloper.com/design/warlock-s-magic-system-was-built-on-game-breaking-player-choices" target="_blank" rel="noopener">Warlock's magic system was built on game-bending player choices</a></h3>
-            <p>It's not a bug, it's a feature....</p>
-            <span class="date">Publié le : Fri, 28 Aug 2026 12:03:43 GMT</span>
-        </article>
-        
-        <article class="article-card">
-            <h3><a href="https://www.gamedeveloper.com/business/spanish-union-calls-for-ongoing-strike-action-at-ubisoft-mobile-barcelona" target="_blank" rel="noopener">Spanish union calls for ongoing strike action at Ubisoft Mobile Barcelona</a></h3>
-            <p>'The strike was communicated to the company in early August; however, the workers' representatives are still awaiting a response.'...</p>
-            <span class="date">Publié le : Fri, 28 Aug 2026 09:57:07 GMT</span>
-        </article>
-        
-        <article class="article-card">
-            <h3><a href="https://www.gamedeveloper.com/design/how-you-yes-you-can-benefit-from-1-on-1-synchronous-playtesting" target="_blank" rel="noopener">How you (yes, you) can benefit from 1-on-1 synchronous playtesting</a></h3>
-            <p>In his 2026 GDC Festival of Gaming talk, designer Brian Cronin makes the case for one-on-one playtesting....</p>
-            <span class="date">Publié le : Thu, 27 Aug 2026 16:48:40 GMT</span>
-        </article>
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-content">
+                    <a href="#" class="news-title">Chargement des articles...</a>
+                    <p class="news-desc">Les articles s'afficheront ici après l'exécution du script GitHub Actions.</p>
+                </div>
+            </div>
         </div>
-<p class="last-update">Dernière mise à jour automatique : 06/09/2026 à 03:31 UTC</p>
-<!-- END_AUTOMATIC_ARTICLES -->
+        <!-- END_AUTOMATIC_ARTICLES -->
+
+        <div class="load-more-container">
+            <button id="btnLoadMore" class="btn-load-more" onclick="showMoreArticles()">Voir d'autres articles</button>
+        </div>
 
     </section>
 
@@ -147,6 +179,42 @@
 
     <script>
         if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+
+        // Script pour afficher d'abord 3 articles puis charger les suivants
+        function initArticles() {
+            const cards = document.querySelectorAll('.news-grid .news-card');
+            const btn = document.getElementById('btnLoadMore');
+
+            if (cards.length <= 3) {
+                if (btn) btn.style.display = 'none';
+                return;
+            }
+
+            // Masque tous les articles à partir du 4ème (index >= 3)
+            cards.forEach((card, index) => {
+                if (index >= 3) {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        function showMoreArticles() {
+            const hiddenCards = document.querySelectorAll('.news-grid .news-card.hidden');
+            const btn = document.getElementById('btnLoadMore');
+
+            // Affiche les 3 prochains articles masqués
+            for (let i = 0; i < 3 && i < hiddenCards.length; i++) {
+                hiddenCards[i].classList.remove('hidden');
+            }
+
+            // Si plus aucun article n'est masqué, on cache le bouton
+            if (document.querySelectorAll('.news-grid .news-card.hidden').length === 0) {
+                if (btn) btn.style.display = 'none';
+            }
+        }
+
+        // Exécution au chargement de la page
+        document.addEventListener('DOMContentLoaded', initArticles);
     </script>
 </body>
 </html>
