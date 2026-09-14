@@ -126,12 +126,12 @@
     <!-- CONTENU PRINCIPAL -->
     <section>
         <h2><span>#</span> Sujet de Veille</h2>
-       <div style="background-color: var(--bg-card); padding: 1.5rem; border-radius: 0.75rem; border: 1px solid var(--border-color); margin-bottom: 2rem;">
-    <h3 style="color: #00E699; margin-top: 0; font-size: 1.2rem;">L'impact de l'IA générative dans le développement vidéoludique</h3>
-    <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">
-        Mon suivi s'articule autour de l'intégration des assistants IA (Gemini, ChatGPT, Claude) dans le cycle de vie applicatif vidéoludique, la génération d'actifs 3D/audio, ainsi que l'évolution des moteurs de jeux (Unreal Engine, Unity).
-    </p>
-</div>
+        <div style="background-color: var(--bg-card); padding: 1.5rem; border-radius: 0.75rem; border: 1px solid var(--border-color); margin-bottom: 2rem;">
+            <h3 style="color: #00E699; margin-top: 0; font-size: 1.2rem;">L'impact de l'IA générative dans le développement vidéoludique</h3>
+            <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">
+                Mon suivi s'articule autour de l'intégration des assistants IA (Gemini, ChatGPT, Claude) dans le cycle de vie applicatif vidéoludique, la génération d'actifs 3D/audio, ainsi que l'évolution des moteurs de jeux (Unreal Engine, Unity).
+            </p>
+        </div>
 
         <h2><span>#</span> Outils & Méthodologie d'Agrégation</h2>
         <p class="section-desc">Les sources et plateformes utilisées pour automatiser et filtrer la collecte d'informations.</p>
@@ -151,8 +151,64 @@
             </div>
         </div>
 
+        <!-- SECTION SYNTHÈSE GLOBALE DE LA VEILLE -->
+        <h2 style="margin-top: 3rem;"><span>#</span> Synthèse Globale & Tendances Observées</h2>
+        <p class="section-desc">Résumé analytique répondant à la problématique principale à partir des articles collectés.</p>
+
+        <div style="background-color: var(--bg-card); padding: 1.75rem; border-radius: 0.75rem; border: 1px solid var(--border-color); margin-bottom: 2.5rem;">
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+                
+                <div>
+                    <h4 style="color: #00E699; font-size: 1rem; margin-top: 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <i data-lucide="code-2" style="width: 18px; height: 18px;"></i>
+                        1. Optimisation du Développement & Code
+                    </h4>
+                    <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 0;">
+                        L'intégration des LLM assiste les développeurs dans l'écriture de scripts (C# pour Unity, C++ pour Unreal Engine), l'accélération du prototypage et la détection automatisée de bugs, réduisant la charge de travail répétitive.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 style="color: #00E699; font-size: 1rem; margin-top: 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <i data-lucide="mic" style="width: 18px; height: 18px;"></i>
+                        2. Production d'Assets Audio & Graphiques
+                    </h4>
+                    <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 0;">
+                        Des cas concrets d'acteurs de l'industrie (ex: EA avec les voix off de commentaires sportifs) montrent une adoption de l'IA générative pour créer des doublages synthétiques et des textures, optimisant les délais de pré-production.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 style="color: #00E699; font-size: 1rem; margin-top: 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <i data-lucide="shield-check" style="width: 18px; height: 18px;"></i>
+                        3. Encadrement Social & Éthique
+                    </h4>
+                    <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 0;">
+                        L'impact de l'IA pousse l'industrie vers des négociations collectives (ex: accords syndicaux chez Blizzard) visant à encadrer l'usage de l'IA pour protéger l'emploi tout en préservant la propriété intellectuelle.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 style="color: #00E699; font-size: 1rem; margin-top: 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <i data-lucide="layers" style="width: 18px; height: 18px;"></i>
+                        4. Démocratisation des Studios Indépendants
+                    </h4>
+                    <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; margin-bottom: 0;">
+                        L'accès à des outils génératifs permet aux petites équipes de rivaliser avec les productions de grande envergure en automatisant la génération de décors, d'animations et d'arbres de dialogues complexes.
+                    </p>
+                </div>
+
+            </div>
+
+            <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color); color: var(--text-main); font-size: 0.9rem; font-style: italic;">
+                💡 <strong>Bilan de la veille :</strong> L'IA générative rehausse l'efficience globale du Game Development. Elle ne remplace pas l'expertise technique ou créative des développeurs, mais agit comme un multiplicateur de productivité réorganisant la gestion de projet et l'éthique du secteur.
+            </div>
+
+        </div>
+
         <!-- FLUX D'ARTICLES AUTOMATISÉ -->
-        <h2 style="margin-top: 3rem;"><span>#</span> Dernières Actualités</h2>
+        <h2><span>#</span> Dernières Actualités</h2>
         <p class="section-desc">Flux d'actualités extrait automatiquement chaque semaine.</p>
 
         <!-- START_AUTOMATIC_ARTICLES -->
