@@ -1,33 +1,41 @@
 import feedparser
-import datetime
 import re
+import urllib.request
 
+# Liste des flux RSS ciblés Jeu Vidéo & IA / Tech
 FEEDS = [
-    # Flux spécialisés Jeu Vidéo & Gamedev
     "https://www.gamedeveloper.com/rss.xml",
     "https://gamefromscratch.com/feed/",
     "https://www.gamekult.com/feed.xml",
     "https://www.jeuxvideo.com/rss/rss.xml",
-    # Flux Tech & IA (axés développement)
     "https://techcrunch.com/category/artificial-intelligence/feed/",
     "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
-    "https://www.developpez.com/index/rss"
+    "https://www.clubic.com/feed/news.rss"
 ]
 
 KEYWORDS = [
-    # IA Générative & Assistants
-    "ia générative", "generative ai", "chatgpt", "gemini", "claude", "copilot", 
-    "llm", "intelligence artificielle", "ai agent", "npc ai",
-    # Moteurs de jeux & Développement spécialisé
-    "jeu vidéo", "video game", "game dev", "gamedev", "unreal engine", "unity", 
-    "godot", "moteur de jeu", "asset generation", "procedural generation",
-    "procedural content", "game design", "3d generation"
+    "ia", "ai", "chatgpt", "gemini", "claude", "copilot", "llm", 
+    "unreal", "unity", "godot", "jeu vidéo", "jeu video", "gamedev", 
+    "game dev", "moteur", "procedural", "3d", "generation", "npc", "pnj"
 ]
 
 DEFAULT_IMAGE = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80"
 
+def fetch_feed_with_user_agent(url):
+    """ Télécharge le flux en se passant pour un navigateur web """
+    req = urllib.request.Request(
+        url, 
+        headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=10) as response:
+            return response.read()
+    except Exception as e:
+        print(f"⚠️ Impossible d'accéder au flux {url} : {e}")
+        return None
+
 def extract_image(entry):
-    """ Tente d'extraire l'URL d'une image de l'article RSS """
+    """ Extrait l'image d'un article """
     if 'media_content' in entry and len(entry.media_content) > 0:
         if 'url' in entry.media_content[0]:
             return entry.media_content[0]['url']
@@ -49,43 +57,47 @@ def fetch_articles():
     seen_titles = set()
 
     for url in FEEDS:
-        try:
-            feed = feedparser.parse(url)
-            for entry in feed.entries:
-                title = entry.get('title', '')
-                summary = entry.get('summary', entry.get('description', ''))
-                link = entry.get('link', '')
-                published = entry.get('published', entry.get('updated', ''))
+        content_bytes = fetch_feed_with_user_agent(url)
+        if not content_bytes:
+            continue
 
-                if title in seen_titles:
-                    continue
+        feed = feedparser.parse(content_bytes)
+        print(f"📡 Flux analysé : {url} ({len(feed.entries)} articles trouvés)")
 
-                content = f"{title} {summary}".lower()
-                
-                # Vérifie la présence conjointe/pertinente des mots-clés liés au gamedev
-                if any(kw in content for kw in KEYWORDS):
-                    image_url = extract_image(entry)
-                    clean_summary = re.sub('<[^<]+?>', '', summary)
-                    clean_summary = " ".join(clean_summary.split())[:140] + '...'
+        for entry in feed.entries:
+            title = entry.get('title', '')
+            summary = entry.get('summary', entry.get('description', ''))
+            link = entry.get('link', '')
+            published = entry.get('published', entry.get('updated', ''))
 
-                    articles.append({
-                        'title': title,
-                        'link': link,
-                        'summary': clean_summary if len(clean_summary) > 5 else "Consulter l'article pour plus de détails.",
-                        'image': image_url,
-                        'date': published[:16] if published else "Récent"
-                    })
-                    seen_titles.add(title)
-        except Exception as e:
-            print(f"Erreur sur le flux {url}: {e}")
+            if title in seen_titles:
+                continue
 
-    return articles[:12] # Récupère les 12 articles les plus récents
+            full_text = f"{title} {summary}".lower()
+            
+            # Vérification des mots-clés
+            if any(kw in full_text for kw in KEYWORDS):
+                image_url = extract_image(entry)
+                clean_summary = re.sub('<[^<]+?>', '', summary)
+                clean_summary = " ".join(clean_summary.split())[:140] + '...'
+
+                articles.append({
+                    'title': title,
+                    'link': link,
+                    'summary': clean_summary if len(clean_summary) > 5 else "Consulter l'article pour plus de détails.",
+                    'image': image_url,
+                    'date': published[:16] if published else "Récent"
+                })
+                seen_titles.add(title)
+
+    return articles[:12]
 
 def update_html():
     articles = fetch_articles()
-    
+    print(f"✅ Total d'articles sélectionnés : {len(articles)}")
+
     if not articles:
-        articles_html = '<p class="section-desc">Aucun article trouvé pour le moment sur le développement vidéoludique et l\'IA.</p>'
+        articles_html = '<p class="section-desc">Aucun article n\'a été trouvé actuellement sur ce thème.</p>'
     else:
         articles_html = '<div class="news-grid">\n'
         for art in articles:
@@ -114,9 +126,9 @@ def update_html():
 
         with open("veille.html", "w", encoding="utf-8") as f:
             f.write(new_content)
-        print("veille.html mis à jour avec succès (Focus 100% Jeu Vidéo & IA) !")
+        print("🎉 veille.html mis à jour avec succès !")
     except Exception as e:
-        print(f"Erreur lors de la mise à jour : {e}")
+        print(f"❌ Erreur d'écriture dans veille.html : {e}")
 
 if __name__ == "__main__":
     update_html()
