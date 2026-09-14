@@ -3,41 +3,40 @@ import datetime
 import re
 
 FEEDS = [
-    # Flux Francophones
-    "https://www.lemagit.fr/rss/RSS-Syndication.xml",
-    "https://www.zataz.com/feed/",
-    "https://www.clubic.com/feed/news.rss",
-    "https://kulturegeek.fr/feed",
-    "https://www.gamekult.com/feed.xml",
-    "https://www.jeuxvideo.com/rss/rss.xml",
-    # Flux Internationaux / Anglais spécialisés Jeu Vidéo & Sécurité
+    # Flux spécialisés Jeu Vidéo & Gamedev
     "https://www.gamedeveloper.com/rss.xml",
     "https://gamefromscratch.com/feed/",
-    "https://www.bleepingcomputer.com/feed/"
+    "https://www.gamekult.com/feed.xml",
+    "https://www.jeuxvideo.com/rss/rss.xml",
+    # Flux Tech & IA (axés développement)
+    "https://techcrunch.com/category/artificial-intelligence/feed/",
+    "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+    "https://www.developpez.com/index/rss"
 ]
 
 KEYWORDS = [
-    "ia", "intelligence artificielle", "sécurité", "faille", "cybersécurité", 
-    "unreal", "unity", "jeu vidéo", "piratage", "vulnerabilite", "pentest", 
-    "moteur de jeu", "chatgpt", "gemini", "copilot", "ai", "security", "exploit"
+    # IA Générative & Assistants
+    "ia générative", "generative ai", "chatgpt", "gemini", "claude", "copilot", 
+    "llm", "intelligence artificielle", "ai agent", "npc ai",
+    # Moteurs de jeux & Développement spécialisé
+    "jeu vidéo", "video game", "game dev", "gamedev", "unreal engine", "unity", 
+    "godot", "moteur de jeu", "asset generation", "procedural generation",
+    "procedural content", "game design", "3d generation"
 ]
 
 DEFAULT_IMAGE = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80"
 
 def extract_image(entry):
     """ Tente d'extraire l'URL d'une image de l'article RSS """
-    # 1. Vérifie dans media_content
     if 'media_content' in entry and len(entry.media_content) > 0:
         if 'url' in entry.media_content[0]:
             return entry.media_content[0]['url']
     
-    # 2. Vérifie dans enclosures
     if 'enclosures' in entry and len(entry.enclosures) > 0:
         for enc in entry.enclosures:
             if enc.get('type', '').startswith('image/'):
                 return enc.get('href', '')
 
-    # 3. Cherche une balise <img> dans la description/summary
     content = entry.get('summary', '') or entry.get('description', '')
     img_match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', content)
     if img_match:
@@ -62,6 +61,8 @@ def fetch_articles():
                     continue
 
                 content = f"{title} {summary}".lower()
+                
+                # Vérifie la présence conjointe/pertinente des mots-clés liés au gamedev
                 if any(kw in content for kw in KEYWORDS):
                     image_url = extract_image(entry)
                     clean_summary = re.sub('<[^<]+?>', '', summary)
@@ -78,13 +79,13 @@ def fetch_articles():
         except Exception as e:
             print(f"Erreur sur le flux {url}: {e}")
 
-    return articles[:12] # Récupère jusqu'à 12 articles
+    return articles[:12] # Récupère les 12 articles les plus récents
 
 def update_html():
     articles = fetch_articles()
     
     if not articles:
-        articles_html = '<p class="section-desc">Aucun article n\'a été trouvé cette semaine.</p>'
+        articles_html = '<p class="section-desc">Aucun article trouvé pour le moment sur le développement vidéoludique et l\'IA.</p>'
     else:
         articles_html = '<div class="news-grid">\n'
         for art in articles:
@@ -113,9 +114,9 @@ def update_html():
 
         with open("veille.html", "w", encoding="utf-8") as f:
             f.write(new_content)
-        print("veille.html mis à jour avec succès avec des cartes d'articles et images !")
+        print("veille.html mis à jour avec succès (Focus 100% Jeu Vidéo & IA) !")
     except Exception as e:
-        print(f"Erreur : {e}")
+        print(f"Erreur lors de la mise à jour : {e}")
 
 if __name__ == "__main__":
     update_html()
