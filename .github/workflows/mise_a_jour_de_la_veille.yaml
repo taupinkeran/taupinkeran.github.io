@@ -1,0 +1,35 @@
+name: Mise à jour automatique de la veille
+
+on:
+  schedule:
+    # S'exécute automatiquement tous les lundis à 8h00 UTC
+    - cron: '0 8 * * 1'
+  workflow_dispatch: # Permet de lancer le script manuellement depuis l'onglet Actions
+
+jobs:
+  update-veille:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le code du dépôt
+        uses: actions/checkout@v3
+
+      - name: Configurer Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Installer les dépendances
+        run: |
+          python -m pip install --upgrade pip
+          pip install feedparser
+
+      - name: Exécuter le script de veille
+        run: python update_veille_2.py
+
+      - name: Sauvegarder et publier les modifications
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add veille.html
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Auto-update de la veille [skip ci]" && git push)
