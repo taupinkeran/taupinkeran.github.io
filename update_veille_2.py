@@ -14,9 +14,10 @@ FEEDS = [
 ]
 
 KEYWORDS = [
-    "ia", "ai", "chatgpt", "gemini", "claude", "copilot", "llm", 
+    r"\bia\b", r"\bai\b", "chatgpt", "gemini", "claude", "copilot", "llm", 
     "unreal", "unity", "godot", "jeu vidéo", "jeu video", "gamedev", 
-    "game dev", "moteur", "procedural", "3d", "generation", "npc", "pnj"
+    "game dev", "moteur", "procedural", "3d", "generation", "npc", "pnj",
+    "generative ai", "intelligence artificielle"
 ]
 
 DEFAULT_IMAGE = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80"
@@ -75,8 +76,18 @@ def fetch_articles():
 
             full_text = f"{title} {summary}".lower()
             
-            # Vérification des mots-clés
-            if any(kw in full_text for kw in KEYWORDS):
+            # Vérification des mots-clés avec regex / sous-chaînes
+            match_found = False
+            for kw in KEYWORDS:
+                if kw.startswith(r"\b"):
+                    if re.search(kw, full_text):
+                        match_found = True
+                        break
+                elif kw in full_text:
+                    match_found = True
+                    break
+
+            if match_found:
                 image_url = extract_image(entry)
                 clean_summary = re.sub('<[^<]+?>', '', summary)
                 clean_summary = " ".join(clean_summary.split())[:140] + '...'
@@ -116,7 +127,7 @@ def update_html():
         articles_html += '</div>\n'
 
     try:
-        with open("veille.html", "r", encoding="utf-8") as f:
+        with open("veille_2.html", "r", encoding="utf-8") as f:
             content = f.read()
 
         pattern = r"<!-- START_AUTOMATIC_ARTICLES -->.*?<!-- END_AUTOMATIC_ARTICLES -->"
@@ -124,11 +135,11 @@ def update_html():
         
         new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
 
-        with open("veille.html", "w", encoding="utf-8") as f:
+        with open("veille_2.html", "w", encoding="utf-8") as f:
             f.write(new_content)
-        print("🎉 veille.html mis à jour avec succès !")
+        print("🎉 veille_2.html mis à jour avec succès !")
     except Exception as e:
-        print(f"❌ Erreur d'écriture dans veille.html : {e}")
+        print(f"❌ Erreur d'écriture dans veille_2.html : {e}")
 
 if __name__ == "__main__":
     update_html()
