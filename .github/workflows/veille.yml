@@ -1,10 +1,12 @@
-name: Mise à jour automatique de la veille
+name: Veille Automatique
 
 on:
   schedule:
-    # S'exécute automatiquement tous les lundis à 8h00 UTC
-    - cron: '0 8 * * 1'
-  workflow_dispatch: # Permet de lancer le script manuellement depuis l'onglet Actions
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write  # Autorise le push sur le dépôt
 
 jobs:
   update-veille:
@@ -12,10 +14,10 @@ jobs:
 
     steps:
       - name: Récupérer le code du dépôt
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Configurer Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
@@ -29,7 +31,13 @@ jobs:
 
       - name: Sauvegarder et publier les modifications
         run: |
+          git config --global --add safe.directory /github/workspace
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add veille.html
-          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Auto-update de la veille [skip ci]" && git push)
+          if ! git diff --staged --quiet; then
+            git commit -m "🤖 Auto-update de la veille [skip ci]"
+            git push
+          else
+            echo "Aucun changement détecté dans veille.html"
+          fi
