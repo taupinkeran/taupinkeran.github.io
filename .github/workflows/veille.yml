@@ -30,14 +30,15 @@ jobs:
         run: python update_veille_2.py
 
       - name: Sauvegarder et publier les modifications
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --global --add safe.directory /github/workspace
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add veille.html
           if ! git diff --staged --quiet; then
             git commit -m "🤖 Auto-update de la veille [skip ci]"
-            git push
+            git push origin main
           else
             echo "Aucun changement détecté dans veille.html"
           fi
