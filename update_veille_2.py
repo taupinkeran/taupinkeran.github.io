@@ -88,11 +88,10 @@ def generate_synthesis(articles):
     if not articles:
         return "Aucune donnée récente à synthétiser pour cette période."
 
-    # Analyse rapide des thèmes présents dans les titres
     titles_text = " ".join([art['title'] for art in articles]).lower()
     
     themes = []
-    if "ai" in titles_erté or "ia" in titles_text or "artificial" in titles_text:
+    if "ai" in titles_text or "ia" in titles_text or "artificial" in titles_text:
         themes.append("l'intégration croissante des assistants et outils d'intelligence artificielle dans les moteurs de jeux (comme Unreal Engine ou Unity)")
     if "security" in titles_text or "cloning" in titles_text or "vulnerability" in titles_text:
         themes.append("les préoccupations grandissantes concernant la sécurité, le clonage de jeux par IA et la protection des données des studios")
@@ -115,11 +114,8 @@ def generate_synthesis(articles):
 
 def update_html():
     articles = fetch_articles()
-    
-    # 1. Génération de la synthèse dynamique
     synthesis_html = generate_synthesis(articles)
 
-    # 2. Génération des cartes d'articles
     if not articles:
         articles_html = '<p class="section-desc">Aucun article n\'a été trouvé cette semaine.</p>'
     else:
@@ -143,12 +139,10 @@ def update_html():
         with open("veille_2.html", "r", encoding="utf-8") as f:
             content = f.read()
 
-        # Remplacement de la synthèse
         synth_pattern = r"<!-- START_SYNTHESIS -->.*?<!-- END_SYNTHESIS -->"
         synth_replacement = f"<!-- START_SYNTHESIS -->\n{synthesis_html}\n<!-- END_SYNTHESIS -->"
         content = re.sub(synth_pattern, synth_replacement, content, flags=re.DOTALL)
 
-        # Remplacement des articles
         art_pattern = r"<!-- START_AUTOMATIC_ARTICLES -->.*?<!-- END_AUTOMATIC_ARTICLES -->"
         art_replacement = f"<!-- START_AUTOMATIC_ARTICLES -->\n{articles_html}\n<!-- END_AUTOMATIC_ARTICLES -->"
         content = re.sub(art_pattern, art_replacement, content, flags=re.DOTALL)
